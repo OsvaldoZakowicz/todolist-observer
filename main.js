@@ -97,7 +97,9 @@ function displayTodos(){
   ul.innerHTML = '';
   publisher.getTodoList().forEach((item) => {
     const li = document.createElement('li');
-    li.innerText = item.descripcion;
+    const span = document.createElement('span');
+    span.innerText = item.descripcion;
+    li.appendChild(span);
     const button = document.createElement('button');
     button.innerText = 'listo';
     button.addEventListener('click', ()=>{
