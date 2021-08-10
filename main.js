@@ -43,7 +43,8 @@ function addTodo(item){
 }
 
 /**
- * *Mostrar tareas dentro de la lista 
+ * *Mostrar tareas dentro de la lista
+ * Esta funcion es un observador
  */
 function displayTodos(){
   //obtenemos la lista desordenada
@@ -98,3 +99,31 @@ function removeTodo(id){
   notifyObservers();
 }
 
+/**
+ * *Usamos local storage para persistir la lista de tareas
+ * Esta funcion es un observador
+ */
+function persistTodos(){
+  localStorage.setItem("saved-todos", JSON.stringify(todolist));
+}
+addObserver(persistTodos);
+
+/**
+ * *Cargar datos provenientes de local storage en el array de tareas
+ * @param {*} savedData 
+ */
+function loadTodos(savedData){
+  todolist = savedData;
+  notifyObservers();
+}
+
+/**
+ * *Evento on load, al cargar, recargar pagina, se restauran el contenido del
+ * array de tareas a local storage
+ */
+window.addEventListener('load', ()=>{
+  const savedData = localStorage.getItem("saved-todos");
+  if (savedData) {
+    loadTodos(JSON.parse(savedData));
+  }
+});
