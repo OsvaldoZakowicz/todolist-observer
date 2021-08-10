@@ -56,6 +56,14 @@ function displayTodos(){
     const li = document.createElement('li');
     //al item le damos la descripcion de la tarea
     li.innerText = item.descripcion;
+    //crear un boton de eliminar, y agregar este a cada li
+    const button = document.createElement('button');
+    button.innerText = 'Quitar';
+    //evento para quitar item de la lista
+    button.addEventListener('click', ()=>{
+      removeTodo(item.id);
+    });
+    li.appendChild(button);
     //agregamos a la lista el item
     ul.appendChild(li);
   });
@@ -78,3 +86,15 @@ addObserver(displayTodos);
 function notifyObservers(){
   observers.forEach((observer)=>observer());
 }
+
+/**
+ * *Filtrar la lista de tareas para quitar la deseada
+ * @param {*} id 
+ */
+function removeTodo(id){
+  //uso de filter
+  todolist = todolist.filter((todo)=> todo.id !== id);
+  //notificar observadores
+  notifyObservers();
+}
+
