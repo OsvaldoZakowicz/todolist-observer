@@ -38,3 +38,20 @@ formulario.addEventListener('submit', (e) => {
 function addTodo(item){
   todolist.push(item);
 }
+
+/**
+ * *Mostrar tareas dentro de la lista 
+ */
+function displayTodos(){
+  //obtenemos la lista desordenada
+  const ul = document.querySelector('ul');
+  //por cada elemento...
+  todolist.forEach((item) => {
+    //creamos un item html de la lista
+    const li = document.createElement('li');
+    //al item le damos la descripcion de la tarea
+    li.innerText = item.descripcion;
+    //agregamos a la lista el item
+    ul.appendChild(li);
+  });
+}
