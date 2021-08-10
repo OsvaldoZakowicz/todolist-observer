@@ -36,7 +36,10 @@ formulario.addEventListener('submit', (e) => {
  * @param {*} item 
  */
 function addTodo(item){
+  //agregamos a la lista un item
   todolist.push(item);
+  //notificamos a los observadores, ya que el publicador tiene cambios
+  notifyObservers();
 }
 
 /**
@@ -45,6 +48,8 @@ function addTodo(item){
 function displayTodos(){
   //obtenemos la lista desordenada
   const ul = document.querySelector('ul');
+  //limpiar constante ul
+  ul.innerHTML = '';
   //por cada elemento...
   todolist.forEach((item) => {
     //creamos un item html de la lista
@@ -54,4 +59,22 @@ function displayTodos(){
     //agregamos a la lista el item
     ul.appendChild(li);
   });
+}
+
+/**
+ * *Agregar una funcion a la lista de observadores
+ * La funcion agregada como parametro sera un observador
+ * @param {*} observer 
+ */
+function addObserver(observer){
+  //agregar funcion a la lista de observadores
+  observers.push(observer);
+}
+addObserver(displayTodos);
+
+/**
+ * *Notificar a cada observador
+ */
+function notifyObservers(){
+  observers.forEach((observer)=>observer());
 }
