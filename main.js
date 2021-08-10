@@ -78,6 +78,7 @@ const formulario = document.getElementById('formulario');
 formulario.addEventListener('submit', (e) => {
   e.preventDefault();
   const input = formulario.elements[0];
+  //objeto item, es decir, una tarea
   const item = {
     id: Date.now(),
     descripcion: input.value,
@@ -98,7 +99,7 @@ function displayTodos(){
     const li = document.createElement('li');
     li.innerText = item.descripcion;
     const button = document.createElement('button');
-    button.innerText = 'Quitar';
+    button.innerText = 'listo';
     button.addEventListener('click', ()=>{
       publisher.removeTodo(item.id);
     });
