@@ -1,14 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 
 :root {
-  --font-color: #f5f1ed;
+  --primary-font-color: #f5f1ed;
+  --secondary-font-color: #161a1d;
   --primary-color: #353535;
-  --secondary-color: #70798c;
+  --secondary-color: #495057;
+  --tertiary-color: #6c757d;
+  --note-color: #ffd166;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: 'Oswald', sans-serif;
-  color: var(--font-color);
+  font-family: 'Lato', sans-serif;
+  color: var(--primary-font-color);
   background-color: var(--primary-color);
 }
 .container {
@@ -21,9 +31,30 @@ body {
   margin: 0 auto;
 }
 
+.separador {
+  min-width: 310px;
+  max-width: 1000px;
+  height: 1px;
+  margin: 20px 5px;
+  border-bottom: 1px solid var(--tertiary-color);
+}
+
 h1 {
-  margin: 10px 5px;
-  padding: 5px;
+  margin: 8px 5px;
+  padding: 2px;
+  font-size: 3rem;
+  line-height: 3rem;
+}
+
+h3 {
+  padding: 2px;
+  margin: 5px;
+  line-height: 1.8rem;
+  font-size: 1.8rem;
+}
+
+h1, h3 {
+  font-family: 'Oswald', sans-serif;
 }
 
 ul {
@@ -32,6 +63,8 @@ ul {
   padding: 0;
 }
 
+
+/* Estilos de la nota */
 ul li {
   display: flex;
   justify-content: space-between;
@@ -44,28 +77,28 @@ ul li {
   font-size: 1.2rem;
   font-weight: 300;
   border-radius: 10px;
-  background: var(--primary-color);
-  box-shadow:  -12px -12px 14px #2b2b2b,
-              12px 12px 14px #3f3f3f;
-  }
+  color: var(--secondary-font-color);
+  background: var(--note-color);
+}
 
-  ul li span {
+/* campo de texto de la nota */
+ul li span {
   min-width: 200px;
   max-width: 800px;
-  }
+}
 
-  ul li button {
-    width: 50px;
-    height: 30px;
-    /* que el button no se achique */
-    flex-shrink: 0;
-    cursor: pointer;
-    color: var(--font-color);
-    border: none;
-    border-radius: 10px;
-    background: #70798c;
-    box-shadow:  -3px -3px 14px #2b2b2b,
-                  3px 3px 14px #3f3f3f;
+/* boton de la nota */
+ul li button {
+  width: 50px;
+  height: 30px;
+  /* que el boton no se contraiga */
+  flex-shrink: 0;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  font-weight: 300;
+  color: var(--primary-font-color);
+  background: var(--secondary-color);
 }
 
 form {
@@ -75,11 +108,10 @@ form {
   min-width: 260px;
   max-width: 1000px;
   padding: 10px;
+  margin: 15px 0 8px;
   height: 60px;
   border-radius: 10px;
-  background:var(--primary-color);
-  box-shadow:  -12px -12px 14px #2b2b2b,
-              12px 12px 14px #3f3f3f;
+  background:var(--secondary-color);
 }
 
 form input {
@@ -89,30 +121,28 @@ form input {
   height: 40px;
   margin-right: 10px;
   padding: 5px 10px;
-  font-family: 'Oswald', sans-serif;
   font-size: 1.2rem;
   cursor: pointer;
   border: none;
-  color: var(--font-color);
   border-radius: 10px;
-  background: #333533;
-  box-shadow: inset -13px -13px 20px #303030,
-              inset 13px 13px 20px #3a3a3a;
+  color: var(--font-color);
+  background: var(--primary-color);
 }
 
 form button {
-  width: 70px;
-  height: 30px;
+  width: 90px;
+  height: 40px;
+  padding: 5px 10px;
   cursor: pointer;
-  color: var(--font-color);
   border: none;
   border-radius: 10px;
-  background: #70798c;
-  box-shadow:  -3px -3px 14px #2b2b2b,
-                3px 3px 14px #3f3f3f;
+  text-transform: uppercase;
+  color: var(--font-color);
+  background: var(--tertiary-color);
 }
 
 p {
+  margin: 10px 0;
   position: fixed;
   bottom: 0;
   right: calc(50% - 100px);
