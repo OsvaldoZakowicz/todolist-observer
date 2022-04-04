@@ -10,18 +10,27 @@
 </head>
 <body>
   <div class="container">
-    <h1>ToDo:</h1>
-    <h3>Toma notas simples!</h3>
+    <h1 class="title-one">ToDo:</h1>
+    <h3 class="title-three">Toma notas simples!</h3>
     <!-- formulario para tomar notas aqui -->
-    <form id="formulario">
-      <input type="text" placeholder="Nueva nota..." required>
-      <button type="submit">Agregar</button>
+    <form id="formulario" class="form">
+      <label class="form__label" for="titulo">Titulo</label>
+      <input class="form__input"id="titulo" type="text" placeholder="titulo..." required>
+      <label class="form__label" for="fecha">Fecha limite</label>
+      <input class="form__input" id="fecha" type="date">
+      <label class="form__label" for="nota">Nota</label>
+      <!-- <input id="nota" type="text" placeholder="nota..." required> -->
+      <textarea class="form__input form__input--textarea" name="nota" id="nota" cols="30" rows="6" placeholder="nota..."></textarea>
+      <div class="form__buttons-container">
+        <a class="form__btn form__btn--danger" href="#" id="cancel">Cancelar</a>
+        <button class="form__btn form__btn--primary" type="submit">Agregar</button>
+      </div>
     </form>
-    <div class="separador"></div>
-    <ul>
+    <div class="separator"></div>
+    <ul class="notes">
       <!-- lista de tareas aqui-->
     </ul>
-    <p>Desarrollado por <a href="https://github.com/OsvaldoZakowicz" target="blank">Osvaldo Zakowicz</a></p>
+    <p class="copyright">Desarrollado por <a href="https://github.com/OsvaldoZakowicz" target="blank">Osvaldo Zakowicz</a></p>
   </div>
   <!-- javascript source link -->
   <script src="main.js"></script>
