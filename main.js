@@ -69,43 +69,106 @@ function Publisher() {
 const publisher = Publisher();
 
 //Obtenemos el formulario
-const formulario = document.getElementById('formulario');
+const form = document.getElementById('form');
 
 /**
  * *El formulario obtenido responde al evento submit, capturando la tarea ingresada
- * y creando un objeto item, el cual sera agregado a la lista de tareas
+ * y creando un objeto "note", el cual sera agregado a la lista de tareas
  */
-formulario.addEventListener('submit', (e) => {
+form.addEventListener('submit', (e) => {
   e.preventDefault();
-  const input = formulario.elements[0];
-  //objeto item, es decir, una tarea
-  const item = {
+  //title
+  const noteTitle = form.elements[0];
+  //deadline date
+  const noteDateDeadLine = form.elements[1];
+  //text
+  const noteText = form.elements[2];
+  //object note
+  const note = {
     id: Date.now(),
-    descripcion: input.value,
+    title: noteTitle.value,
+    deadline: noteDateDeadLine.value,
+    text: noteText.value
   };
-  publisher.addTodo(item);
-  input.value = '';
+  //save note
+  publisher.addTodo(note);
+  //clear inputs
+  noteTitle.value = "";
+  noteDateDeadLine.value = "";
+  noteText.value = "";
 });
 
+/**
+ * *Generar el template html string de una nota
+ * @param {*} title titulo de la nota 
+ * @param {*} deadline fecha limite
+ * @param {*} text cuerpo de la nota
+ * @returns template
+ */
+function noteBodyTemplate(deadline, text) {
+  return `<div class="note__body">
+            <div class="note__section note__section--status">
+              <span class="note__subtitle">fecha limite: ${deadline}</span>
+            </div>
+            <div class="note__section note__section--text">
+              <p class="note__text">${text}</p>
+            </div>
+          </div>`;
+}
+
+/**
+ * * Transformar htmlString a un nodo DOM correcto
+ * @param {*} htmlString 
+ * @returns 
+ */
+function htmlStringToDom(htmlString) {
+  //HTMLString debe convertirse a html, para ello primero crearemos un marco html
+  const html = document.implementation.createHTMLDocument();
+  //para convertir HTMLString a html sintáctico, hacemos que html incluya a HTMLString
+  html.body.innerHTML = htmlString;
+  //ahora simplemente retornamos el htmlString (template de nota)
+  //como un nodo DOM correcto
+  return html.body.children[0];
+}
 
 /**
  * *Mostrar tareas dentro de la lista
- * Esta funcion es un observador
+ * Esta funcion es un observador, mostrara la lista de
+ * tareas, creando el HTML necesario para visualizar cada
+ * una
  */
 function displayTodos(){
-  const ul = document.querySelector('ul');
+  //the ul element
+  const ul = document.getElementById('notes');
+  //first, clear the view of all notes
   ul.innerHTML = '';
+  //for each note "Object" in the list, create a html li
   publisher.getTodoList().forEach((item) => {
+    //li (note)
     const li = document.createElement('li');
+    li.classList.add('note');
+    //div (title and link container)
+    const div = document.createElement('div');
+    div.classList.add('note__section','note__section--header');
+    //span title
     const span = document.createElement('span');
-    span.innerText = item.descripcion;
-    li.appendChild(span);
+    span.classList.add('note__title');
+    span.innerText = item.title;
+    //button
     const button = document.createElement('button');
-    button.innerText = 'listo';
-    button.addEventListener('click', ()=>{
+    button.classList.add('note__button');
+    button.innerText = 'listo'
+    button.addEventListener('click', () => {
       publisher.removeTodo(item.id);
     });
-    li.appendChild(button);
+    //note heading
+    div.appendChild(span);
+    div.appendChild(button);
+    li.appendChild(div);
+    //note body
+    const noteBody = noteBodyTemplate(item.deadline, item.text);
+    const noteBodyToDom = htmlStringToDom(noteBody);
+    li.append(noteBodyToDom);
     ul.appendChild(li);
   });
 }
