@@ -7,7 +7,7 @@
   --primary-color: #353535;
   --secondary-color: #495057;
   --tertiary-color: #6c757d;
-  --note-color: #ffe1a8;
+  --note-color: #fef9ef;
   --btn-primary-color: #c9cba3;
   --btn-danger-color: #e26d5c;
 }
@@ -97,7 +97,7 @@ body {
   justify-content: flex-start;
   align-items: flex-start;
   margin: 10px 5px;
-  padding: 10px;
+  padding: 5px;
   width: 300px;
   height: 280px;
   font-size: 1.2rem;
@@ -164,22 +164,28 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  height: auto;
+  height: 20%;
   border-bottom: 1px solid var(--primary-color);
 }
 
 .note__section--status {
-  height: auto;
+  height: 20%;
+}
+
+.note__body {
+  height: 80%;
+  width: 100%;
 }
 
 .note__section--text {
-  height: 70%;
+  height: 80%;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .form {
   position: absolute;
+  top: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -261,15 +267,4 @@ body {
 
 .form__btn--primary {
   background-color: var(--btn-primary-color);
-}
-
-.copyright {
-  margin: 10px 0;
-  position: fixed;
-  bottom: 0;
-  right: calc(50% - 100px);
-}
-
-.copyright a {
-  color: var(--secondary-color);
 }
