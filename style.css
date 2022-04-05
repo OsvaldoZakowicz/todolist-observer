@@ -23,14 +23,34 @@ body {
   color: var(--primary-font-color);
   background-color: var(--primary-color);
 }
+
+.main-container {
+  min-width: 310px;
+  max-width: 1000px;
+  height: auto;
+  margin: 0 auto;
+  padding: 10px;
+}
+
 .container {
+  /* luego el form estara encima de forma absoluta */
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-width: 310px;
   max-width: 1000px;
   height: auto;
-  margin: 0 auto;
+  margin: 10px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  min-width: 310px;
+  max-width: 1000px;
+  height: auto;
 }
 
 .separator {
@@ -159,18 +179,25 @@ body {
 }
 
 .form {
+  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   min-width: 260px;
+  width: 100%;
   max-width: 1000px;
   padding: 10px;
-  margin: 15px 5px 8px;
+  /* margin: 15px 5px 8px; */
   height: auto;
   border-radius: 10px;
   background:var(--secondary-color);
   font-family: 'Lato', sans-serif;
+}
+
+/* show/hide form modal */
+.form--hidden {
+  display: none;
 }
 
 .form__label {

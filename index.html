@@ -9,30 +9,58 @@
   <title>ToDo</title>
 </head>
 <body>
-  <div class="container">
-    <h1 class="title-one">ToDo:</h1>
-    <h3 class="title-three">Toma notas simples!</h3>
-    <!-- formulario para tomar notas aqui -->
-    <form id="form" class="form">
-      <label class="form__label" for="titulo">Titulo</label>
-      <input class="form__input"id="titulo" type="text" placeholder="titulo..." required>
-      <label class="form__label" for="fecha">Fecha limite</label>
-      <input class="form__input" id="fecha" type="date">
-      <label class="form__label" for="nota">Nota</label>
-      <!-- <input id="nota" type="text" placeholder="nota..." required> -->
-      <textarea class="form__input form__input--textarea" name="nota" id="nota" cols="30" rows="6" placeholder="nota..."></textarea>
-      <div class="form__buttons-container">
-        <a class="form__btn form__btn--danger" href="#" id="cancel">Cancelar</a>
-        <button class="form__btn form__btn--primary" type="submit">Agregar</button>
-      </div>
-    </form>
-    <div class="separator"></div>
-    <ul id="notes" class="notes">
-      <!-- lista de tareas aqui-->
-    </ul>
-    <p class="copyright">Desarrollado por <a href="https://github.com/OsvaldoZakowicz" target="blank">Osvaldo Zakowicz</a></p>
-  </div>
+  <main id="main" class="main-container">
+    <div class="container">
+      <header class="header">
+        <div class="title-container">
+          <h1 class="title-one">ToDo:</h1>
+          <h3 class="title-three">Toma notas simples!</h3>
+        </div>
+        <a href="#" id="nueva-nota" class="form__btn form__btn--primary" >nueva</a>
+      </header>
+      <!-- formulario para tomar notas aqui -->
+      <form id="form" class="form form--hidden">
+        <h3 class="title-three">Nueva nota:</h3>
+        <label class="form__label" for="titulo">Titulo</label>
+        <input class="form__input"id="titulo" type="text" placeholder="titulo..." required>
+        <label class="form__label" for="fecha">Fecha limite</label>
+        <input class="form__input" id="fecha" type="date">
+        <label class="form__label" for="nota">Nota</label>
+        <!-- <input id="nota" type="text" placeholder="nota..." required> -->
+        <textarea class="form__input form__input--textarea" name="nota" id="nota" cols="30" rows="6" placeholder="nota..."></textarea>
+        <div class="form__buttons-container">
+          <a class="form__btn form__btn--danger" href="#" id="cancel">Cancelar</a>
+          <button class="form__btn form__btn--primary" id="submit" type="submit">Agregar</button>
+        </div>
+      </form>
+      <div class="separator"></div>
+      <ul id="notes" class="notes">
+        <!-- lista de tareas aqui-->
+      </ul>
+      <p class="copyright">Desarrollado por <a href="https://github.com/OsvaldoZakowicz" target="blank">Osvaldo Zakowicz</a></p>
+    </div>
+  </main>
   <!-- javascript source link -->
   <script src="main.js"></script>
+  <!-- javascript show/hide form modal -->
+  <script>
+    const buttonCancel = document.getElementById('cancel');
+    const buttonNueva = document.getElementById('nueva-nota');
+    const formModal = document.getElementById('form');
+    
+    buttonNueva.addEventListener('click', () => {
+      formModal.classList.remove('form--hidden');
+    });
+
+    buttonCancel.addEventListener('click', () => {
+      formModal.classList.add('form--hidden');
+      //on cancel, clear inputs
+      formModal.elements[0].value = '';
+      formModal.elements[1].value = '';
+      formModal.elements[2].value = '';
+    });
+
+
+  </script>
 </body>
 </html>
