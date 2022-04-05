@@ -63,44 +63,99 @@ body {
   list-style: none;
   margin: 0 0 40px 0;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 
 /* Estilos de la nota */
-.notes li {
+.note {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   margin: 10px 5px;
   padding: 10px;
-  min-width: 260px;
-  max-width: 1000px;
-  height: auto;
+  width: 300px;
+  height: 280px;
   font-size: 1.2rem;
   font-weight: 300;
   border-radius: 10px;
+  overflow: hidden;
   color: var(--secondary-font-color);
   background: var(--note-color);
 }
 
-/* campo de texto de la nota */
-.notes li span {
-  min-width: 200px;
-  max-width: 800px;
+.note__title {
+  display: block;
+  width: 100%;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: .6px;
+  line-height: 1.6;
 }
 
-/* boton de la nota */
-.notes li button {
-  width: 50px;
-  height: 30px;
-  /* que el boton no se contraiga */
-  flex-shrink: 0;
+.note__subtitle {
+  display: block;
+  width: 100%;
+  font-size: 15px;
+  letter-spacing: .5px;
+  line-height: 1.6;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.note__text {
+  display: block;
+  width: 100%;
+  font-size: 17px;
+  letter-spacing: .6px;
+  line-height: 1.6;
+}
+
+.note__button {
+  display: block;
+  font-size: 12px;
+  line-height: 90%;
+  letter-spacing: .6px;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
   cursor: pointer;
-  border: none;
-  border-radius: 10px;
-  font-weight: 300;
+  color: var(--secondary-font-color);
+  border: 1px solid var(--secondary-font-color);
+}
+
+.note__button:hover {
   color: var(--primary-font-color);
-  background: var(--secondary-color);
+  background-color: var(--secondary-font-color);
+}
+
+.note__section {
+  width: 100%;
+  padding: 5px 0;
+}
+
+.note__section--header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: auto;
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.note__section--status {
+  height: auto;
+}
+
+.note__section--text {
+  height: 70%;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .form {
