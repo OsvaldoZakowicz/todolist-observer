@@ -1,3 +1,10 @@
+/* * -- icono de producto -------------------*/
+.todo-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 2rem;
+}
+
 /* * -- botones -----------------------------*/
 
 .btn {
@@ -9,7 +16,7 @@
     line-height: 1rem;
     text-decoration: none;
     text-transform: uppercase;
-    font-weight: bold;
+    font-weight: 300;
     vertical-align: middle;
     text-align: center;
     margin: 0;
@@ -111,22 +118,16 @@
 
 /* * -- elementos de texto -----------------------*/
 
-.title-one {
-  margin: 8px 5px;
-  padding: 2px;
+.title {
   font-size: 2rem;
-  line-height: 2.5rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
 }
 
-.title-three {
-  padding: 2px;
-  margin: 5px;
+.subtitle {
   font-size: 1.3rem;
-  line-height: 1.8rem;
-}
-
-.title-one, .title-three {
-  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+  margin-bottom: 0.8rem;
 }
 
 /* * -- nota ---------------------------------------*/
