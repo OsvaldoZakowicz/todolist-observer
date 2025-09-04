@@ -4,40 +4,44 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Style -->
-  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
   <title>ToDo</title>
 </head>
 <body>
-  <main id="main" class="main-container">
-    <div class="container">
-      <header class="header">
-        <div class="title-container">
-          <h1 class="title-one">ToDo:</h1>
-          <h3 class="title-three">Toma notas simples!</h3>
-        </div>
-        <a href="#" id="nueva-nota" class="form__btn form__btn--primary" >nueva</a>
-      </header>
-      <!-- formulario para tomar notas aqui -->
-      <form id="form" class="form form--hidden">
-        <h3 class="title-three">Nueva nota:</h3>
-        <label class="form__label" for="titulo">Titulo</label>
-        <input class="form__input"id="titulo" type="text" placeholder="titulo..." required>
-        <label class="form__label" for="fecha">Fecha limite</label>
-        <input class="form__input" id="fecha" type="date">
-        <label class="form__label" for="nota">Nota</label>
-        <!-- <input id="nota" type="text" placeholder="nota..." required> -->
-        <textarea class="form__input form__input--textarea" name="nota" id="nota" cols="30" rows="6" placeholder="nota..."></textarea>
-        <div class="form__buttons-container">
-          <a class="form__btn form__btn--danger" href="#" id="cancel">Cancelar</a>
-          <button class="form__btn form__btn--primary" id="submit" type="submit">Agregar</button>
-        </div>
-      </form>
-      <div class="separator"></div>
-      <ul id="notes" class="notes">
-        <!-- lista de tareas aqui-->
-      </ul>
-    </div>
+  <main id="main">
+
+    <!-- seccion encabezado -->
+    <header class="header">
+      <div class="title-container">
+        <h1 class="title-one">ToDo:</h1>
+        <h3 class="title-three">Toma notas simples!</h3>
+      </div>
+      <div class="button-container">
+        <a href="#" id="nueva-nota" class="btn btn--new-light">nueva nota</a>
+      </div>
+    </header>
+
+    <!-- formulario para tomar notas aqui -->
+    <form id="form" class="form form--hidden">
+      <h3 class="title-three">Nueva nota:</h3>
+      <label class="form__label" for="titulo">Titulo</label>
+      <input class="form__input"id="titulo" type="text" placeholder="titulo..." required>
+      <label class="form__label" for="fecha">Fecha limite</label>
+      <input class="form__input" id="fecha" type="date">
+      <label class="form__label" for="nota">Nota</label>
+      <!-- <input id="nota" type="text" placeholder="nota..." required> -->
+      <textarea class="form__input form__input--textarea" name="nota" id="nota" cols="30" rows="6" placeholder="nota..."></textarea>
+      <div class="form__buttons-container">
+        <a class="btn btn--cancel-light" href="#" id="cancel">cancelar</a>
+        <a class="btn btn--save-light" href="#" id="submit">guardar</a>
+      </div>
+    </form>
+
+    <ul id="notes" class="notes">
+      <!-- lista de tareas aqui-->
+    </ul>
   </main>
   <!-- javascript source link -->
   <script src="main.js"></script>

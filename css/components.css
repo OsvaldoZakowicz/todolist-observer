@@ -1,94 +1,135 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+/* * -- botones -----------------------------*/
 
-:root {
-  --primary-font-color: #d9d9d9;
-  --secondary-font-color: #333533;
-  --primary-color: #242423;
-  --secondary-color: #495057;
-  --tertiary-color: #6c757d;
-  --note-color: #ffe1a8;
-  --btn-primary-color: #3c6e71;
-  --btn-danger-color: #e26d5c;
+.btn {
+    display: inline-flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    line-height: 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    vertical-align: middle;
+    text-align: center;
+    margin: 0;
+    padding: 8px 0px;
+    border-bottom: 2px solid;
+    cursor: pointer;
+    color: var(--font-color-dark);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.btn--new-light {
+    border-color: var(--font-color-dark);
 }
 
-body {
-  font-family: 'Lato', sans-serif;
-  color: var(--primary-font-color);
-  background-color: var(--primary-color);
+.btn--new-light::before {
+    content: '';
+    display: inline-block;
+    background-image: url('/assets/svg/add-ellipse-svgrepo-com.svg');
+    width: 18px;
+    height: 18px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 4px;
 }
 
-.main-container {
-  min-width: 310px;
-  max-width: 1000px;
-  height: auto;
-  margin: 0 auto;
-  padding: 10px;
+.btn--save-light {
+    border-color: var(--font-color-accept);
 }
 
-.container {
-  /* luego el form estara encima de forma absoluta */
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-width: 310px;
-  max-width: 1000px;
-  height: auto;
-  margin: 10px;
+.btn--save-light::before {
+    content: '';
+    display: inline-block;
+    background-image: url('/assets/svg/save-01-svgrepo-com.svg');
+    width: 18px;
+    height: 18px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 4px;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  min-width: 310px;
-  max-width: 1000px;
-  height: auto;
+.btn--edit-light {
+    border-color: var(--font-color-dark);
 }
 
-.separator {
-  min-width: 310px;
-  max-width: 1000px;
-  height: 1px;
-  margin: 20px 5px;
-  border-bottom: 1px solid var(--tertiary-color);
+.btn--edit-light::before {
+    content: '';
+    display: inline-block;
+    background-image: url('/assets/svg/add-1-svgrepo-com.svg');
+    width: 18px;
+    height: 18px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 4px;
 }
+
+.btn--cancel-light {
+    border-color: var(--font-color-cancel);
+}
+
+.btn--cancel-light::before {
+    content: '';
+    display: inline-block;
+    background-image: url('/assets/svg/cancle-circle-svgrepo-com.svg');
+    width: 18px;
+    height: 18px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 4px;
+}
+
+.btn--delete-light {
+    border-color: var(--font-color-delete);
+}
+
+.btn--delete-light::before {
+    content: '';
+    display: inline-block;
+    background-image: url('/assets/svg/trash-svgrepo-com.svg');
+    width: 18px;
+    height: 18px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 4px;
+}
+
+.btn--done-light {
+    border-color: var(--font-color-done);
+}
+
+.btn--done-light::before {
+    content: '';
+    display: inline-block;
+    background-image: url('/assets/svg/check-square-svgrepo-com.svg');
+    width: 18px;
+    height: 18px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 4px;
+}
+
+/* * -- elementos de texto -----------------------*/
 
 .title-one {
   margin: 8px 5px;
   padding: 2px;
-  font-size: 3rem;
-  line-height: 3rem;
+  font-size: 2rem;
+  line-height: 2.5rem;
 }
 
 .title-three {
   padding: 2px;
   margin: 5px;
+  font-size: 1.3rem;
   line-height: 1.8rem;
-  font-size: 1.8rem;
 }
 
 .title-one, .title-three {
   font-family: 'Oswald', sans-serif;
 }
 
-.notes {
-  list-style: none;
-  margin: 0 0 40px 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-}
-
+/* * -- nota ---------------------------------------*/
 
 /* Estilos de la nota */
 .note {
@@ -184,6 +225,7 @@ body {
   overflow-y: auto;
 }
 
+/* * -- formulario -----------------------------*/
 .form {
   position: absolute;
   top: 0;
@@ -240,32 +282,4 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-}
-
-.form__btn {
-  display: block;
-  width: 90px;
-  height: 40px;
-  padding: 14px 10px;
-  cursor: pointer;
-  border: none;
-  border-radius: 10px;
-  font-family: 'Lato', sans-serif;
-  line-height: 90%;
-  font-size: 12px;
-  text-align: center;
-  text-decoration: none;
-  font-weight: bold;
-  letter-spacing: .5px;
-  text-transform: uppercase;
-  color: var(--primary-font-color);
-}
-
-.form__btn--danger {
-  margin-right: 5px;
-  background-color: var(--btn-danger-color);
-}
-
-.form__btn--primary {
-  background-color: var(--btn-primary-color);
 }
