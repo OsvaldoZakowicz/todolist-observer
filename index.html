@@ -29,21 +29,34 @@
       </div>
     </header>
 
-    <!-- formulario para tomar notas aqui -->
-    <form id="form" class="form form--hidden">
-      <h3 class="title-three">Nueva nota:</h3>
-      <label class="form__label" for="titulo">Titulo</label>
-      <input class="form__input"id="titulo" type="text" placeholder="titulo..." required>
-      <label class="form__label" for="fecha">Fecha limite</label>
-      <input class="form__input" id="fecha" type="date">
-      <label class="form__label" for="nota">Nota</label>
-      <!-- <input id="nota" type="text" placeholder="nota..." required> -->
-      <textarea class="form__input form__input--textarea" name="nota" id="nota" cols="30" rows="6" placeholder="nota..."></textarea>
-      <div class="form__buttons-container">
-        <a class="btn btn--cancel-light" href="#" id="cancel">cancelar</a>
-        <a class="btn btn--save-light" href="#" id="submit">guardar</a>
-      </div>
-    </form>
+    <!-- seccion formulario -->
+     <div class="form-wrapper">
+       <form id="form" class="form">
+
+         <h2 class="subtitle">Nueva nota:</h2>
+
+         <div class="form__input-wrapper">
+          <label class="form__label" for="titulo">titulo</label>
+          <input class="form__input"id="titulo" type="text" required>
+         </div>
+
+         <div class="form__input-wrapper">
+          <label class="form__label" for="fecha">fecha limite</label>
+          <input class="form__input" id="fecha" type="date">
+         </div>
+
+         <div class="form__input-wrapper">
+          <label class="form__label" for="nota">nota</label>
+          <textarea class="form__input form__input--textarea" name="nota" id="nota" cols="30" rows="6"></textarea>
+         </div>
+         
+         <div class="form__buttons-container">
+           <a class="btn btn--cancel-light" href="#" id="cancel">cancelar</a>
+           <a class="btn btn--save-light" href="#" id="submit">guardar</a>
+         </div>
+
+       </form>
+     </div>
 
     <ul id="notes" class="notes">
       <!-- lista de tareas aqui-->

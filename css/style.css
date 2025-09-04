@@ -1,6 +1,7 @@
 :root {
 
   --bg-color-dark:   #353535;
+  --bg-color-accent: #35353580; /* transparencia */
   --bg-color-light:  #ffffff;
 
   --font-color-dark:   #353535;
@@ -21,6 +22,7 @@ body {
   font-family: "Roboto", sans-serif;
   color: var(--primary-font-color);
   background-color: var(--primary-color);
+  position: relative;
 }
 
 main {
