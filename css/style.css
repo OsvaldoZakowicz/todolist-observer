@@ -48,34 +48,38 @@ body {
     border-bottom: 1px solid var(--bg-color-dark);
 }
 
-.title-container {
-    padding: 0 2rem;
-}
-
 .button-container {
     display: flex;
     gap: 1rem;
     width: 100%;
     max-width: 1000px;
-    padding: 0 2rem;
 }
 
 .notes {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: start;
+    gap: 1rem;
+    width: 100%;
+    max-width: 1000px;
+    min-height: 60vh;
+    padding: 2rem;
+}
+
+.note-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     gap: 2rem;
     width: 100%;
-    max-width: 1000px;
-    height: auto;
-    padding: 2rem;
 }
 
 .footer {
     width: 100%;
     max-width: 1000px;
-    height: 300px;
+    min-height: 20vh;
     align-items: start;
     gap: 1rem;
     padding: 2rem;
