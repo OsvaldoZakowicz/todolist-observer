@@ -1,69 +1,70 @@
 :root {
 
-  --bg-color-dark:   #353535;
-  --bg-color-accent: #35353580; /* transparencia */
-  --bg-color-light:  #ffffff;
+    --bg-color-dark: #353535;
+    --bg-color-accent: #35353580;
+    /* transparencia */
+    --bg-color-light: #ffffff;
 
-  --font-color-dark:   #353535;
-  --font-color-light:  #ffffff;
-  --font-color-accept: #43aa8b;
-  --font-color-cancel: #ced4da;
-  --font-color-delete: #ef233c;
-  --font-color-done:   #284b63;
+    --font-color-dark: #353535;
+    --font-color-light: #ffffff;
+    --font-color-accept: #43aa8b;
+    --font-color-cancel: #ced4da;
+    --font-color-delete: #ef233c;
+    --font-color-done: #284b63;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: "Roboto", sans-serif;
-  color: var(--primary-font-color);
-  background-color: var(--primary-color);
-  position: relative;
+    font-family: "Roboto", sans-serif;
+    color: var(--primary-font-color);
+    background-color: var(--primary-color);
+    position: relative;
 }
 
 main {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 1rem;
 }
 
 .header {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: start;
-  gap: 1rem;
-  width: 100%;
-  max-width: 1000px;
-  height: auto;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--bg-color-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 1rem;
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--bg-color-dark);
 }
 
 .title-container {
-  padding: 0 2rem;
+    padding: 0 2rem;
 }
 
 .button-container {
-  display: flex;
-  flex-direction: row-reverse;
-  gap: 1rem;
-  width: 100%;
-  max-width: 1000px;
-  padding: 0 2rem;
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    max-width: 1000px;
+    padding: 0 2rem;
 }
 
 .notes {
-  list-style: none;
-  margin: 0 0 40px 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    padding-bottom: 2rem;
 }

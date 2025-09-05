@@ -1,88 +1,109 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/components.css">
-  
-  <title>ToDo</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+
+    <title>ToDo</title>
 </head>
+
 <body>
-  <main id="main">
+    <main id="main">
 
-    <!-- seccion encabezado -->
-    <header class="header">
-      <img class="todo-icon" src="/assets/svg/todo-txt-svgrepo-com (1).svg" alt="todo icono de producto" width="32px" height="32px">
-      <div class="title-container">
-        <h1 class="title">ToDo:</h1>
-        <h2 class="subtitle">Toma notas simples!</h2>
-      </div>
-      <div class="button-container">
-        <a href="#" id="nueva-nota" class="btn btn--new-light">nueva nota</a>
-      </div>
-    </header>
+        <!-- seccion encabezado -->
+        <header class="header">
+            <img class="todo-icon" src="/assets/svg/todo-txt-svgrepo-com (1).svg" alt="todo icono de producto"
+                width="32px" height="32px">
+            <div class="title-container">
+                <h1 class="title">ToDo:</h1>
+                <h2 class="subtitle">Toma notas simples!</h2>
+            </div>
+            <div class="button-container">
+                <a href="#" id="nueva-nota" class="btn btn--new-light">nueva nota</a>
+            </div>
+        </header>
 
-    <!-- seccion formulario -->
-     <div class="form-wrapper">
-       <form id="form" class="form">
+        <!-- seccion formulario -->
+        <div class="form-wrapper form--hidden">
+            <form id="form" class="form">
 
-         <h2 class="subtitle">Nueva nota:</h2>
+                <h2 class="subtitle">Nueva nota:</h2>
 
-         <div class="form__input-wrapper">
-          <label class="form__label" for="titulo">titulo</label>
-          <input class="form__input"id="titulo" type="text" required>
-         </div>
+                <div class="form__input-wrapper">
+                    <label class="form__label" for="titulo">titulo</label>
+                    <input class="form__input" id="titulo" type="text" required>
+                </div>
 
-         <div class="form__input-wrapper">
-          <label class="form__label" for="fecha">fecha limite</label>
-          <input class="form__input" id="fecha" type="date">
-         </div>
+                <div class="form__input-wrapper">
+                    <label class="form__label" for="fecha">fecha limite</label>
+                    <input class="form__input" id="fecha" type="date">
+                </div>
 
-         <div class="form__input-wrapper">
-          <label class="form__label" for="nota">nota</label>
-          <textarea class="form__input form__input--textarea" name="nota" id="nota" cols="30" rows="6"></textarea>
-         </div>
-         
-         <div class="form__buttons-container">
-           <a class="btn btn--cancel-light" href="#" id="cancel">cancelar</a>
-           <a class="btn btn--save-light" href="#" id="submit">guardar</a>
-         </div>
+                <div class="form__input-wrapper">
+                    <label class="form__label" for="nota">nota</label>
+                    <textarea class="form__input form__input--textarea" name="nota" id="nota" cols="30"
+                        rows="6"></textarea>
+                </div>
 
-       </form>
-     </div>
+                <div class="form__buttons-container">
+                    <a class="btn btn--cancel-light" href="#" id="cancel">cancelar</a>
+                    <a class="btn btn--save-light" href="#" id="submit">guardar</a>
+                </div>
 
-    <ul id="notes" class="notes">
-      <!-- lista de tareas aqui-->
-    </ul>
-  </main>
-  <!-- javascript source link -->
-  <script src="main.js"></script>
-  <!-- javascript show/hide form modal -->
-  <script>
-    const buttonCancel = document.getElementById('cancel');
-    const buttonNueva = document.getElementById('nueva-nota');
-    const formModal = document.getElementById('form');
-    
-    buttonNueva.addEventListener('click', () => {
-      formModal.classList.remove('form--hidden');
-    });
+            </form>
+        </div>
 
-    buttonCancel.addEventListener('click', () => {
-      formModal.classList.add('form--hidden');
-      //on cancel, clear inputs
-      formModal.elements[0].value = '';
-      formModal.elements[1].value = '';
-      formModal.elements[2].value = '';
-    });
+        <section id="notes" class="notes">
+            <!-- todo: nuevo estilo de nota -->
+            <article class="note">
+                <header class="note__header">
+                    <p class="note__title">titulo de nota</p>
+                    <p class="note__deadline">12/12/2025</p>
+                </header>
+                <main class="note__body">
+                    <p class="note__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus?
+                    </p>
+                </main>
+                <footer class="note__controls">
+                    <button type="button" class="btn btn--delete-light">borrar</button>
+                    <button type="button" class="btn btn--done-light">listo!</button>
+                </footer>
+            </article>
+        </section>
+
+    </main>
+    <!-- javascript source link -->
+    <script src="main.js"></script>
+    <!-- javascript show/hide form modal -->
+    <script>
+        const buttonCancel = document.getElementById('cancel');
+        const buttonNueva = document.getElementById('nueva-nota');
+        const formModal = document.getElementById('form');
+
+        buttonNueva.addEventListener('click', () => {
+            formModal.classList.remove('form--hidden');
+        });
+
+        buttonCancel.addEventListener('click', () => {
+            formModal.classList.add('form--hidden');
+            //on cancel, clear inputs
+            formModal.elements[0].value = '';
+            formModal.elements[1].value = '';
+            formModal.elements[2].value = '';
+        });
 
 
-  </script>
+    </script>
 </body>
+
 </html>
