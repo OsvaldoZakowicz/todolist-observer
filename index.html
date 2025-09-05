@@ -29,12 +29,12 @@
                 <h2 class="subtitle">Toma notas simples!</h2>
             </div>
             <div class="button-container">
-                <button type="button" id="nueva-nota" class="btn btn--new">nueva</button>
+                <button type="button" id="btn-new" class="btn btn--new">nueva</button>
             </div>
         </header>
 
         <!-- seccion flotante formulario -->
-        <section class="form-wrapper form--hidden">
+        <section id="modal" class="form-wrapper form--hidden">
             <form id="form" class="form">
 
                 <h2 class="subtitle">Nueva nota:</h2>
@@ -56,8 +56,8 @@
                 </div>
 
                 <div class="form__buttons-container">
-                    <a class="btn btn--cancel-light" href="#" id="cancel">cancelar</a>
-                    <a class="btn btn--save-light" href="#" id="submit">guardar</a>
+                    <button type="button" class="btn btn--cancel" href="#" id="btn-cancel">cancelar</button>
+                    <button type="submit" class="btn btn--save" href="#" id="btn-save">guardar</button>
                 </div>
 
             </form>
@@ -103,9 +103,14 @@
 
     <!-- mostrar y ocultar formulario -->
     <script>
-        const buttonCancel = document.getElementById('cancel');
-        const buttonNueva = document.getElementById('nueva-nota');
-        const formModal = document.getElementById('form');
+        const domById = function (id) {
+            return document.getElementById(id)
+        };
+
+        const buttonCancel = domById('btn-cancel');
+        const buttonNueva = domById('btn-new');
+        const formModal = domById('modal');
+        const formElement = domById('form');
 
         buttonNueva.addEventListener('click', () => {
             formModal.classList.remove('form--hidden');
@@ -113,13 +118,10 @@
 
         buttonCancel.addEventListener('click', () => {
             formModal.classList.add('form--hidden');
-            //on cancel, clear inputs
-            formModal.elements[0].value = '';
-            formModal.elements[1].value = '';
-            formModal.elements[2].value = '';
+            formElement.elements[0].value = '';
+            formElement.elements[1].value = '';
+            formElement.elements[2].value = '';
         });
-
-
     </script>
 </body>
 
