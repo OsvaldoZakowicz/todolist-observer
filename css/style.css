@@ -1,9 +1,10 @@
 :root {
 
     --bg-color-dark: #353535;
-    --bg-color-accent: #35353580;
     /* transparencia */
+    --bg-color-accent: #35353580;
     --bg-color-light: #ffffff;
+    --bg-color-gray: #ced4da;
 
     --font-color-dark: #353535;
     --font-color-light: #ffffff;
@@ -43,6 +44,7 @@ main {
     max-width: 1000px;
     height: auto;
     padding-bottom: 2rem;
+    margin-bottom: 2rem;
     border-bottom: 1px solid var(--bg-color-dark);
 }
 

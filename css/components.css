@@ -26,11 +26,11 @@
     color: var(--font-color-dark);
 }
 
-.btn--new-light {
+.btn--new {
     border-color: var(--font-color-dark);
 }
 
-.btn--new-light::before {
+.btn--new::before {
     content: '';
     display: inline-block;
     background-image: url('/assets/svg/add-ellipse-svgrepo-com.svg');
@@ -41,11 +41,11 @@
     margin-right: 4px;
 }
 
-.btn--save-light {
+.btn--save {
     border-color: var(--font-color-accept);
 }
 
-.btn--save-light::before {
+.btn--save::before {
     content: '';
     display: inline-block;
     background-image: url('/assets/svg/save-01-svgrepo-com.svg');
@@ -56,11 +56,11 @@
     margin-right: 4px;
 }
 
-.btn--edit-light {
+.btn--edit {
     border-color: var(--font-color-dark);
 }
 
-.btn--edit-light::before {
+.btn--edit::before {
     content: '';
     display: inline-block;
     background-image: url('/assets/svg/add-1-svgrepo-com.svg');
@@ -71,11 +71,11 @@
     margin-right: 4px;
 }
 
-.btn--cancel-light {
+.btn--cancel {
     border-color: var(--font-color-cancel);
 }
 
-.btn--cancel-light::before {
+.btn--cancel::before {
     content: '';
     display: inline-block;
     background-image: url('/assets/svg/cancle-circle-svgrepo-com.svg');
@@ -86,11 +86,11 @@
     margin-right: 4px;
 }
 
-.btn--delete-light {
+.btn--delete {
     border-color: var(--font-color-delete);
 }
 
-.btn--delete-light::before {
+.btn--delete::before {
     content: '';
     display: inline-block;
     background-image: url('/assets/svg/trash-svgrepo-com.svg');
@@ -101,11 +101,11 @@
     margin-right: 4px;
 }
 
-.btn--done-light {
+.btn--done {
     border-color: var(--font-color-done);
 }
 
-.btn--done-light::before {
+.btn--done::before {
     content: '';
     display: inline-block;
     background-image: url('/assets/svg/check-square-svgrepo-com.svg');
@@ -132,10 +132,36 @@
 
 /* * -- nota ---------------------------------------*/
 .note {
+    position: relative;
     width: 100%;
     height: auto;
     padding: 1rem;
     border: 1px solid var(--bg-color-dark);
+    /* recorte de esquina superior derecha */
+    clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 0 100%);
+}
+
+/* sombreado de esquina doblada ANTES de nota */
+.note::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 41px;
+    height: 43px;
+    background-color: var(--bg-color-accent);
+}
+
+/* esquina doblada DESPUES de nota */
+.note::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background-color: var(--bg-color-gray);
+
 }
 
 .note__header {
