@@ -11,23 +11,21 @@
     display: inline-flex;
     justify-content: start;
     align-items: center;
-    font-size: 0.8rem;
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
     letter-spacing: 1px;
-    line-height: 1rem;
+    line-height: 1.5rem;
     text-decoration: none;
     text-transform: uppercase;
-    font-weight: 300;
+    font-weight: normal;
     vertical-align: middle;
     text-align: center;
-    margin: 0;
-    padding: 8px 0px;
-    border-bottom: 2px solid;
+    margin: 8px 0px;
+    padding: 4px 0px;
+    border: none;
     cursor: pointer;
+    background-color: transparent;
     color: var(--font-color-dark);
-}
-
-.btn--new {
-    border-color: var(--font-color-dark);
 }
 
 .btn--new::before {
@@ -41,10 +39,6 @@
     margin-right: 4px;
 }
 
-.btn--save {
-    border-color: var(--font-color-accept);
-}
-
 .btn--save::before {
     content: '';
     display: inline-block;
@@ -54,10 +48,6 @@
     background-size: contain;
     background-repeat: no-repeat;
     margin-right: 4px;
-}
-
-.btn--edit {
-    border-color: var(--font-color-dark);
 }
 
 .btn--edit::before {
@@ -71,10 +61,6 @@
     margin-right: 4px;
 }
 
-.btn--cancel {
-    border-color: var(--font-color-cancel);
-}
-
 .btn--cancel::before {
     content: '';
     display: inline-block;
@@ -86,10 +72,6 @@
     margin-right: 4px;
 }
 
-.btn--delete {
-    border-color: var(--font-color-delete);
-}
-
 .btn--delete::before {
     content: '';
     display: inline-block;
@@ -99,10 +81,6 @@
     background-size: contain;
     background-repeat: no-repeat;
     margin-right: 4px;
-}
-
-.btn--done {
-    border-color: var(--font-color-done);
 }
 
 .btn--done::before {
