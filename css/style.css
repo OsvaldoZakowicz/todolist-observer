@@ -11,7 +11,7 @@
     --font-color-accept: #43aa8b;
     --font-color-cancel: #ced4da;
     --font-color-delete: #ef233c;
-    --font-color-done: #284b63;
+    --font-color-done: #007ea7;
 }
 
 * {
@@ -75,7 +75,7 @@ body {
 .footer {
     width: 100%;
     max-width: 1000px;
-    height: 200px;
+    height: 300px;
     align-items: start;
     gap: 1rem;
     padding: 2rem;
