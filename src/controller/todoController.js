@@ -1,6 +1,8 @@
 import { CONFIG } from '../utils/utils.js';
 
 export function TodoController(model) {
+
+    const modal = document.querySelector(CONFIG.SELECTORS.formModal);
     const form = document.querySelector(CONFIG.SELECTORS.form);
 
     if (!form) {
@@ -29,6 +31,8 @@ export function TodoController(model) {
 
             model.addTodo(note);
             form.reset();
+            modal.classList.add('form--hidden');
+
         } catch (error) {
             console.error('Error al agregar tarea:', error);
             alert('Error al agregar la tarea');

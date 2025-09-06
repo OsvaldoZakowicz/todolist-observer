@@ -6,6 +6,7 @@ export const CONFIG = {
     STORAGE_KEY: 'saved-todos',
     SELECTORS: {
         form: '#form', // id del fomulario
+        formModal: '#modal', // id del modal form
         notesList: '#notes' // id del contenedor de notas
     },
     TEXTS: {
