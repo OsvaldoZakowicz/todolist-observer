@@ -13,16 +13,18 @@ class TodoApp {
 
     init() {
         try {
-            // Inicializar modelo
+            // inicializar modelo
+            // NOTA: es ademas el Publicador
             this.model = TodoModel();
 
-            // Inicializar componentes
-            this.view = TodoView(this.model);
-            this.storage = TodoStorage(this.model);
-            this.controller = TodoController(this.model);
+            // inicializar componentes
+            this.view = TodoView(this.model); //manipular vista
+            this.storage = TodoStorage(this.model); // manipular local storage
+            this.controller = TodoController(this.model); // controlar formulario
 
-            // Inicializar todos los componentes
-            this.storage.init(); // Primero cargar datos
+            // inicializar todos los componentes
+            // ejecutar el init de cada componente
+            this.storage.init(); // primero cargar datos
             this.view.init();
             this.controller.init();
 
@@ -33,14 +35,14 @@ class TodoApp {
     }
 
     destroy() {
-        // Limpiar observers y event listeners si es necesario
+        // limpiar observers y event listeners si es necesario
         if (this.model) {
             this.model.clearAll();
         }
     }
 }
 
-// Inicializar cuando el DOM esté listo
+// inicializar cuando el DOM este listo
 document.addEventListener('DOMContentLoaded', () => {
     const app = new TodoApp();
     app.init();
