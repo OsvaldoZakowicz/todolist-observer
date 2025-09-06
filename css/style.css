@@ -55,10 +55,11 @@ body {
     max-width: 1000px;
 }
 
+/* titulo de seccion + grupo de notas */
 .notes {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: start;
     gap: 1rem;
     width: 100%;
@@ -67,6 +68,7 @@ body {
     padding: 2rem;
 }
 
+/* grupo de notas */
 .note-container {
     display: flex;
     flex-direction: column;

@@ -7,6 +7,10 @@ export const CONFIG = {
     SELECTORS: {
         form: '#form', // id del fomulario
         notesList: '#notes' // id del contenedor de notas
+    },
+    TEXTS: {
+        emptyStateTitle: 'No hay notas pendientes',
+        emptyStateSubtext: '¡Agrega una nueva nota para comenzar!'
     }
 };
 

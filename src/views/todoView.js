@@ -6,9 +6,9 @@ import { CONFIG, sanitizeHtml, htmlStringToDom } from '../utils/utils.js';
 
 export function TodoView(model) {
 
+    const subtitleNotes = document.querySelector('#subtitle-notes');
     const notesList = document.querySelector(CONFIG.SELECTORS.notesList);
-    console.log(notesList);
-    
+
 
     if (!notesList) {
         throw new Error(`Elemento ${CONFIG.SELECTORS.notesList} no encontrado`);
@@ -36,6 +36,12 @@ export function TodoView(model) {
               <button type="button" class="btn btn--delete" data-action="delete" data-id="${itemId}">borrar</button>
               <button type="button" class="btn btn--done" data-action="done" data-id="${itemId}">listo!</button>
             </footer>`;
+    }
+
+    // template para el estado vacio
+    function emptyStateTemplate() {
+        return `<p class="subtitle">${CONFIG.TEXTS.emptyStateTitle}</p>
+                <p class="text-base">${CONFIG.TEXTS.emptyStateSubtext}</p>`;
     }
 
 
@@ -92,37 +98,33 @@ export function TodoView(model) {
         // NOTA: retorna copia defensiva del listado de items
         const todos = model.getTodoList();
         console.log('tareas desde model: ', todos);
-        
+
         // limpiar contenido actual
         // NOTA: Virtual DOM approach: recrear desde cero es más simple
         notesList.innerHTML = '';
 
         if (todos.length === 0) {
-            console.log("tareas: " , todos.length);
-            
+
             // no hay tareas que mostrar
             // NOTA: Empty State es una practica UX esencial
-            const emptyMessage = document.createElement('div');
-            emptyMessage.classList.add('subtitle');
-            emptyMessage.innerHTML = `
-                <p>No hay tareas pendientes</p>
-                <small>¡Agrega una nueva tarea para comenzar!</small>
-            `;
+            const emptyState = document.createElement('div');
+            emptyState.innerHTML = emptyStateTemplate();
 
-            fragment.appendChild(emptyMessage);
+            subtitleNotes.classList.add('hidden');
+            fragment.appendChild(emptyState);
+
         } else {
-            console.log("tareas: " , todos.length);
 
+            subtitleNotes.classList.remove('hidden');
             todos.forEach(item => {
-                console.log(item);
-                
                 const todoElement = createTodoElement(item);
                 fragment.appendChild(todoElement);
             });
+
         }
 
         /**
-         * 1 sola manipulacon del DOM real
+         * 1 sola manipulacon del DOM para agregar notas
          * el fragment se "vacía" automaticamente despues de esto
          * finalmente todos los elementos pasan del fragment al DOM de una vez
          */
