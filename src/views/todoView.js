@@ -15,26 +15,26 @@ export function TodoView(model) {
     }
 
     // template del encabezado de nota
-    function noteHeaderTemplate(title, deadline) {
-        return `<header class="note__header">
+    function noteHeaderTemplate(title, deadline, isDone) {
+        return `<header class="note__header ${isDone ? ' note-done' : ''}">
                     <p class="note__title">${sanitizeHtml(title)}</p>
                     <p class="note__deadline">${CONFIG.TEXTS.deadlinePreText} ${sanitizeHtml(deadline || CONFIG.TEXTS.noDeadlineText)}</p>
                 </header>`
     }
 
     // template del contenido principal de la nota
-    function noteBodyTemplate(text) {
-        return `<main class="note__body">
+    function noteBodyTemplate(text, isDone) {
+        return `<main class="note__body ${isDone ? ' note-done' : ''}">
                     <p class="note__text">${sanitizeHtml(text || CONFIG.TEXTS.noDescriptionText)}</p>
                 </main>`
     }
 
     // template del footer y controles de la nota
     // NOTA: es escencial el data-action="" y data-id="" para eventos
-    function noteControlsTemplate(itemId) {
+    function noteControlsTemplate(itemId, isDone) {
         return `<footer class="note__controls">
               <button type="button" class="btn btn--delete" data-action="delete" data-id="${itemId}">${CONFIG.BUTTONS.delete}</button>
-              <button type="button" class="btn btn--done" data-action="done" data-id="${itemId}">${CONFIG.BUTTONS.done}</button>
+              <button type="button" class="btn btn--done ${isDone ? ' note__controls--hidden' : ''}" data-action="done" data-id="${itemId}">${CONFIG.BUTTONS.done}</button>
             </footer>`;
     }
 
@@ -49,20 +49,19 @@ export function TodoView(model) {
         //article principal
         const article = document.createElement('article');
         article.classList.add('note');
-        //article.id.add(item.id);
 
         //header
-        const noteHeaderHtml = noteHeaderTemplate(item.title, item.deadline);
+        const noteHeaderHtml = noteHeaderTemplate(item.title, item.deadline, item.isDone);
         const noteHeaderElement = htmlStringToDom(noteHeaderHtml);
         article.appendChild(noteHeaderElement);
 
         //main
-        const noteBodyHtml = noteBodyTemplate(item.text);
+        const noteBodyHtml = noteBodyTemplate(item.text, item.isDone);
         const noteBodyElement = htmlStringToDom(noteBodyHtml);
         article.appendChild(noteBodyElement);
 
         // footer
-        const noteControlsHtml = noteControlsTemplate(item.id);
+        const noteControlsHtml = noteControlsTemplate(item.id, item.isDone);
         const noteControlsElement = htmlStringToDom(noteControlsHtml);
         article.appendChild(noteControlsElement);
 
@@ -97,7 +96,6 @@ export function TodoView(model) {
         // desde todoModel.js
         // NOTA: retorna copia defensiva del listado de items
         const todos = model.getTodoList();
-        console.log('tareas desde model: ', todos);
 
         // limpiar contenido actual
         // NOTA: Virtual DOM approach: recrear desde cero es más simple
@@ -166,7 +164,9 @@ export function TodoView(model) {
                     break;
 
                 case 'done':
-                    // logica para terminar una tarea
+                    if (confirm('¿Terminaste esta tarea?')) {
+                        model.doneTodo(id);
+                    }
                     break;
 
                 default:

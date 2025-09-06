@@ -212,6 +212,10 @@
     color: var(--bg-color-dark);
 }
 
+.note-done {
+    text-decoration: line-through;
+}
+
 .note__body {
     height: 50%;
     padding: 0.8rem 0;
@@ -227,6 +231,10 @@
     height: 20%;
     display: flex;
     justify-content: space-between;
+}
+
+.note__controls--hidden {
+    display: none;
 }
 
 

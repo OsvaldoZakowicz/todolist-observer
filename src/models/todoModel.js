@@ -43,6 +43,7 @@ export function TodoModel() {
             title: item.title || '',
             deadline: item.deadline || '',
             text: item.text?.trim() || '',
+            isDone: false,
         }
 
         todoList = [newTodo, ...todoList];
@@ -50,7 +51,18 @@ export function TodoModel() {
         return newTodo;
     }
 
-    // todo: actualizar todo
+    function doneTodo(id) {
+        
+        const todo = getTodoById(id);
+        if (!todo) return;
+
+        todoList = todoList.map(todo =>
+            todo.id === id ? {...todo, isDone: true} : todo
+        );
+
+        notifyObservers();
+        return todoList;
+    }
 
     function removeTodo(id) {
         const initialLength = todoList.length;
@@ -74,7 +86,8 @@ export function TodoModel() {
             id: item.id,
             title: item.title || '',
             deadline: item.deadline || '',
-            text: item.text || ''
+            text: item.text || '',
+            isDone: item.isDone || false,
         }));
 
         notifyObservers();
@@ -102,8 +115,8 @@ export function TodoModel() {
         removeObserver,
         notifyObservers,
         addTodo,
+        doneTodo,
         removeTodo,
-        //updateTodo, //todo
         loadTodos,
         getTodoList,
         getTodoById,
