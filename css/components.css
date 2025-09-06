@@ -36,7 +36,7 @@
 .btn--new::before {
     content: '';
     display: inline-block;
-    background-image: url('/assets/svg/add-ellipse-svgrepo-com.svg');
+    background-image: url('../assets/svg/add-ellipse-svgrepo-com.svg');
     width: 18px;
     height: 18px;
     background-size: contain;
@@ -47,7 +47,7 @@
 .btn--save::before {
     content: '';
     display: inline-block;
-    background-image: url('/assets/svg/save-01-svgrepo-com.svg');
+    background-image: url('../assets/svg/save-01-svgrepo-com.svg');
     width: 18px;
     height: 18px;
     background-size: contain;
@@ -58,7 +58,7 @@
 .btn--edit::before {
     content: '';
     display: inline-block;
-    background-image: url('/assets/svg/add-1-svgrepo-com.svg');
+    background-image: url('../assets/svg/add-1-svgrepo-com.svg');
     width: 18px;
     height: 18px;
     background-size: contain;
@@ -69,7 +69,7 @@
 .btn--cancel::before {
     content: '';
     display: inline-block;
-    background-image: url('/assets/svg/cancle-circle-svgrepo-com.svg');
+    background-image: url('../assets/svg/cancle-circle-svgrepo-com.svg');
     width: 18px;
     height: 18px;
     background-size: contain;
@@ -80,7 +80,7 @@
 .btn--delete::before {
     content: '';
     display: inline-block;
-    background-image: url('/assets/svg/trash-svgrepo-com.svg');
+    background-image: url('../assets/svg/trash-svgrepo-com.svg');
     width: 18px;
     height: 18px;
     background-size: contain;
@@ -91,7 +91,7 @@
 .btn--done::before {
     content: '';
     display: inline-block;
-    background-image: url('/assets/svg/check-square-svgrepo-com.svg');
+    background-image: url('../assets/svg/check-square-svgrepo-com.svg');
     width: 18px;
     height: 18px;
     background-size: contain;

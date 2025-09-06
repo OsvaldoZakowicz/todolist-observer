@@ -47,6 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const app = new TodoApp();
     app.init();
 
-    // Hacer disponible globalmente para debugging
-    window.todoApp = app;
+    // hacer disponible globalmente para debugging
+    // window.todoApp = app;
 });

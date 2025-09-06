@@ -19,13 +19,10 @@ export function TodoModel() {
         observers = observer.filter(obs => obs !== observer);
     }
 
-    //? notificar consiste en ejecutar al observador?
     function notifyObservers() {
        observers.forEach((observer, index) => {
             try {
-            console.log(`Ejecutando observer ${index}:`, observer.name || 'función anónima');
             observer();
-            console.log(`✅ Observer ${index} ejecutado correctamente`);
             } catch (error) {
             console.error(`❌ Error en observer ${index}:`, error);
             console.error('Observer problemático:', observer);

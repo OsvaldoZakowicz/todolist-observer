@@ -11,10 +11,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
 
-    <link rel="shortcut icon" href="assets/svg/todo-txt-svgrepo-com (1).svg" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/svg/todo-txt-svgrepo-com (1).svg" type="image/x-icon">
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/components.css">
 
     <title>ToDo</title>
 </head>
@@ -24,7 +24,7 @@
 
         <!-- seccion encabezado -->
         <header class="header">
-            <img class="todo-icon" src="/assets/svg/todo-txt-svgrepo-com (1).svg" alt="todo icono de producto"
+            <img class="todo-icon" src="./assets/svg/todo-txt-svgrepo-com (1).svg" alt="todo icono de producto"
                 width="32px" height="32px">
             <div class="title-container">
                 <h1 class="title">ToDo:</h1>
@@ -73,20 +73,6 @@
             <h2 id="subtitle-notes" class="subtitle">Mis tareas:</h2>
             <!-- notas -->
             <section id="notes" class="note-container">
-                <!-- <article class="note">
-                    <header class="note__header">
-                        <p class="note__title">titulo de nota</p>
-                        <p class="note__deadline">12/12/2025</p>
-                    </header>
-                    <main class="note__body">
-                        <p class="note__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus?
-                        </p>
-                    </main>
-                    <footer class="note__controls">
-                        <button type="button" class="btn btn--delete">borrar</button>
-                        <button type="button" class="btn btn--done">listo!</button>
-                    </footer>
-                </article> -->
             </section>
         </section>
 
@@ -105,28 +91,30 @@
 
     </main>
 
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="./src/main.js"></script>
 
     <!-- mostrar y ocultar formulario -->
     <script>
-        const domById = function (id) {
-            return document.getElementById(id)
-        };
-
-        const buttonCancel = domById('btn-cancel');
-        const buttonNueva = domById('btn-new');
-        const formModal = domById('modal');
-        const formElement = domById('form');
-
-        buttonNueva.addEventListener('click', () => {
-            formModal.classList.remove('form--hidden');
-        });
-
-        buttonCancel.addEventListener('click', () => {
-            formModal.classList.add('form--hidden');
-            formElement.elements[0].value = '';
-            formElement.elements[1].value = '';
-            formElement.elements[2].value = '';
+        document.addEventListener('DOMContentLoaded', function () {
+            const domById = function (id) {
+                return document.getElementById(id)
+            };
+    
+            const buttonCancel = domById('btn-cancel');
+            const buttonNueva = domById('btn-new');
+            const formModal = domById('modal');
+            const formElement = domById('form');
+    
+            buttonNueva.addEventListener('click', () => {
+                formModal.classList.remove('form--hidden');
+            });
+    
+            buttonCancel.addEventListener('click', () => {
+                formModal.classList.add('form--hidden');
+                formElement.elements[0].value = '';
+                formElement.elements[1].value = '';
+                formElement.elements[2].value = '';
+            });
         });
     </script>
 </body>

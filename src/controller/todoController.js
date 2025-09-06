@@ -1,3 +1,6 @@
+// ============================================================================
+// todoController.js - Captura y validacion de datos
+// ============================================================================
 import { CONFIG } from '../utils/utils.js';
 
 export function TodoController(model) {
