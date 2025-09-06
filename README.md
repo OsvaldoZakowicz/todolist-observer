@@ -1,3 +1,4 @@
-# Todo List Observer
-Simple to-do list with observer pattern
-### [Try it now!!](https://osvaldozakowicz.github.io/ToDoListObserver/)
+# Todo
+Applicación web sencilla y local para tomar notas básicas, usando el patron de diseño observador.
+
+[Ver demo del sitio](https://osvaldozakowicz.github.io/todolist-observer/)
