@@ -41,17 +41,17 @@
 
                 <div class="form__input-wrapper">
                     <label class="form__label" for="titulo">titulo</label>
-                    <input class="form__input" id="titulo" type="text" required>
+                    <input class="form__input" id="titulo" name="title" type="text" required>
                 </div>
 
                 <div class="form__input-wrapper">
                     <label class="form__label" for="fecha">fecha limite</label>
-                    <input class="form__input" id="fecha" type="date">
+                    <input class="form__input" id="fecha" name="deadline" type="date">
                 </div>
 
                 <div class="form__input-wrapper">
                     <label class="form__label" for="nota">nota</label>
-                    <textarea class="form__input form__input--textarea" name="nota" id="nota" cols="30"
+                    <textarea class="form__input form__input--textarea" name="text" id="nota" cols="30"
                         rows="6"></textarea>
                 </div>
 
@@ -64,7 +64,7 @@
         </section>
 
         <section class="notes">
-            <h2 id="subtitle-notes" class="subtitle"></h2>
+            <h2 id="subtitle-notes" class="subtitle hidden">Lista de tareas:</h2>
             <!-- notas -->
             <section id="notes" class="note-container">
                 <!-- <article class="note">
@@ -99,7 +99,7 @@
 
     </main>
 
-    <script src="src/main.js"></script>
+    <script type="module" src="/src/main.js"></script>
 
     <!-- mostrar y ocultar formulario -->
     <script>
