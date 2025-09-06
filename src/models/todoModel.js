@@ -88,17 +88,19 @@ export function TodoModel() {
             deadline: item.deadline || '',
             text: item.text || '',
             isDone: item.isDone || false,
-        }));
+        }))
+            .sort((a, b) => a.isDone - b.isDone);
 
         notifyObservers();
     }
 
     /**
      * obtener copia defensiva de lista de tareas
+     * ordenada con notas finalizadas al final
      * @returns array
      */
     function getTodoList() {
-        return [...todoList]; // copia defensiva
+        return [...todoList].sort((a, b) => a.isDone - b.isDone); // copia defensiva
     }
 
     function getTodoById(id) {
