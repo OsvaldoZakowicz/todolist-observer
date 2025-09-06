@@ -10,8 +10,8 @@ export const CONFIG = {
         notesList: '#notes' // id del contenedor de notas
     },
     TEXTS: {
-        emptyStateTitle: 'No hay notas pendientes',
-        emptyStateSubtext: '¡Agrega una nueva nota para comenzar!',
+        emptyStateTitle: 'No hay tareas pendientes',
+        emptyStateSubtext: '¡Agrega una nueva para comenzar!',
         deadlinePreText: 'Fecha límite:',
         noDeadlineText: 'no',
         noDescriptionText: 'sin descripción',

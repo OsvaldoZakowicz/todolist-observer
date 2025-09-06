@@ -45,7 +45,7 @@ export function TodoModel() {
             text: item.text?.trim() || '',
         }
 
-        todoList = [...todoList, newTodo];
+        todoList = [newTodo, ...todoList];
         notifyObservers();
         return newTodo;
     }
