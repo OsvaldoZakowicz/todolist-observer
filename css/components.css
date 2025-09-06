@@ -26,6 +26,12 @@
     background-color: transparent;
     color: var(--font-color-dark);
 }
+@media (min-width: 768px) {
+    .btn {
+        font-size: 0.8rem;
+    }
+}
+
 
 .btn--new::before {
     content: '';
@@ -141,10 +147,25 @@
     color: var(--font-color-cancel);
 }
 
+@media (min-width: 768px) {
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .text-base {
+        font-size: 0.9rem;
+    }
+}
+
 /* * -- nota ---------------------------------------*/
 .note {
     position: relative;
-    width: 100%;
+    width: 100%;           /* Mobile: ancho completo */
+    flex: 0 0 100%;        /* No crecer, no encogerse, 100% ancho */
     height: 300px;
     padding: 1rem;
     display: flex;
@@ -158,7 +179,9 @@
 
 @media (min-width: 576px) {
     .note {
-        width: 350px;
+        width: 240px;
+        max-width: 300px;
+        flex: 1 0 240px;   /* crecer desde base 240px */
     }
 }
 
@@ -211,19 +234,39 @@
     color: var(--bg-color-dark);
 }
 
+@media (min-width: 768px) {
+
+    .note__title {
+        font-size: 1.1rem;
+    }
+
+    .note__deadline,
+    .note__text {
+        font-size: 0.9rem;
+    }
+
+}
+
 .note-done {
     text-decoration: line-through;
 }
 
 .note__body {
-    height: 50%;
+    height: 60%;
     padding: 0.8rem 0;
     max-height: 200px;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
     /* Asegurar que el scroll funcione suavemente */
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
+}
+
+@media (min-width: 768px) {
+    .note__body {
+        height: 70%;
+        max-height: 230px;
+    }
 }
 
 .note__controls {
@@ -256,6 +299,7 @@
 
 .form {
     width: 100%;
+    max-width: 400px;
     z-index: 50;
     display: flex;
     flex-direction: column;
@@ -295,6 +339,14 @@
     font-size: 1.2rem;
     cursor: pointer;
     border: 1px solid var(--bg-color-dark);
+    font-family: 'Roboto', sans-serif;
+}
+
+@media (min-width: 768px) {
+    .form__label,
+    .form__input {
+        font-size: 0.8rem;
+    }
 }
 
 .form__input--textarea {

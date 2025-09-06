@@ -22,8 +22,8 @@
 
 body {
     font-family: "Roboto", sans-serif;
-    color: var(--primary-font-color);
-    background-color: var(--primary-color);
+    color: var(--font-color-dark);
+    background-color: var(--bg-color-gray);
     position: relative;
 }
 
@@ -41,18 +41,37 @@ body {
     align-items: start;
     gap: 1rem;
     width: 100%;
-    max-width: 1000px;
+    max-width: 1200px;
     height: auto;
     padding: 2rem;
-    margin-bottom: 2rem;
     border-bottom: 1px solid var(--bg-color-dark);
+    background-color: var(--bg-color-light);
 }
 
 .button-container {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     gap: 1rem;
     width: 100%;
-    max-width: 1000px;
+    max-width: 1200px;
+}
+
+@media (min-width: 576px) {
+    .header {
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    .title-container {
+        max-width: 800px;
+        flex: 1 0 auto;
+    }
+
+    .button-container {
+        flex-direction: row-reverse;
+        align-self: self-end;
+    }
 }
 
 /* titulo de seccion + grupo de notas */
@@ -63,9 +82,10 @@ body {
     align-items: start;
     gap: 1rem;
     width: 100%;
-    max-width: 1000px;
+    max-width: 1200px;
     min-height: 60vh;
     padding: 2rem;
+    background-color: var(--bg-color-light);
 }
 
 /* grupo de notas */
@@ -76,11 +96,23 @@ body {
     align-items: center;
     gap: 2rem;
     width: 100%;
+    padding-bottom: 8rem;
+}
+
+@media (min-width: 576px) {
+
+    .note-container {
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
 }
 
 .footer {
     width: 100%;
-    max-width: 1000px;
+    max-width: 1200px;
     min-height: 20vh;
     align-items: start;
     gap: 1rem;
