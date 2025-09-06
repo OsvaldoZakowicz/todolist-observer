@@ -18,14 +18,14 @@ export function TodoView(model) {
     function noteHeaderTemplate(title, deadline) {
         return `<header class="note__header">
                     <p class="note__title">${sanitizeHtml(title)}</p>
-                    <p class="note__deadline">${sanitizeHtml(deadline || 'sin fecha limite')}</p>
+                    <p class="note__deadline">${CONFIG.TEXTS.deadlinePreText} ${sanitizeHtml(deadline || CONFIG.TEXTS.noDeadlineText)}</p>
                 </header>`
     }
 
     // template del contenido principal de la nota
     function noteBodyTemplate(text) {
         return `<main class="note__body">
-                    <p class="note__text">${sanitizeHtml(text || 'sin texto')}</p>
+                    <p class="note__text">${sanitizeHtml(text || CONFIG.TEXTS.noDescriptionText)}</p>
                 </main>`
     }
 
@@ -33,8 +33,8 @@ export function TodoView(model) {
     // NOTA: es escencial el data-action="" y data-id="" para eventos
     function noteControlsTemplate(itemId) {
         return `<footer class="note__controls">
-              <button type="button" class="btn btn--delete" data-action="delete" data-id="${itemId}">borrar</button>
-              <button type="button" class="btn btn--done" data-action="done" data-id="${itemId}">listo!</button>
+              <button type="button" class="btn btn--delete" data-action="delete" data-id="${itemId}">${CONFIG.BUTTONS.delete}</button>
+              <button type="button" class="btn btn--done" data-action="done" data-id="${itemId}">${CONFIG.BUTTONS.done}</button>
             </footer>`;
     }
 

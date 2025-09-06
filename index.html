@@ -26,7 +26,7 @@
                 width="32px" height="32px">
             <div class="title-container">
                 <h1 class="title">ToDo:</h1>
-                <h2 class="subtitle">Toma notas simples!</h2>
+                <h2 class="subtitle">Lista de tareas simple!</h2>
             </div>
             <div class="button-container">
                 <button type="button" id="btn-new" class="btn btn--new">nueva</button>
@@ -37,7 +37,7 @@
         <section id="modal" class="form-wrapper form--hidden">
             <form id="form" class="form">
 
-                <h2 class="subtitle">Nueva nota:</h2>
+                <h2 class="subtitle">Nueva tarea:</h2>
 
                 <div class="form__input-wrapper">
                     <label class="form__label" for="titulo">titulo</label>
@@ -45,12 +45,12 @@
                 </div>
 
                 <div class="form__input-wrapper">
-                    <label class="form__label" for="fecha">fecha limite</label>
+                    <label class="form__label" for="fecha">fecha limite?</label>
                     <input class="form__input" id="fecha" name="deadline" type="date">
                 </div>
 
                 <div class="form__input-wrapper">
-                    <label class="form__label" for="nota">nota</label>
+                    <label class="form__label" for="nota">descripción</label>
                     <textarea class="form__input form__input--textarea" name="text" id="nota" cols="30"
                         rows="6"></textarea>
                 </div>
@@ -64,7 +64,7 @@
         </section>
 
         <section class="notes">
-            <h2 id="subtitle-notes" class="subtitle">Mis notas:</h2>
+            <h2 id="subtitle-notes" class="subtitle">Mis tareas:</h2>
             <!-- notas -->
             <section id="notes" class="note-container">
                 <!-- <article class="note">

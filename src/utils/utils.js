@@ -11,7 +11,14 @@ export const CONFIG = {
     },
     TEXTS: {
         emptyStateTitle: 'No hay notas pendientes',
-        emptyStateSubtext: '¡Agrega una nueva nota para comenzar!'
+        emptyStateSubtext: '¡Agrega una nueva nota para comenzar!',
+        deadlinePreText: 'Fecha límite:',
+        noDeadlineText: 'no',
+        noDescriptionText: 'sin descripción',
+    },
+    BUTTONS: {
+        delete: 'borrar',
+        done: 'listo',
     }
 };
 
