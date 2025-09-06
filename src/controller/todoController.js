@@ -39,22 +39,17 @@ export function TodoController(model) {
         }
     }
 
-    function setupFormValidation() {
-        const titleInput = form.querySelector('[name="title"]');
-        if (titleInput) {
-            titleInput.addEventListener('blur', (e) => {
-                if (!e.target.value.trim()) {
-                    e.target.setCustomValidity('El título es requerido');
-                } else {
-                    e.target.setCustomValidity('');
-                }
-            });
+    function setupDateInput() {
+        const dateInput = form.querySelector('[name="deadline"]');
+        if (dateInput && dateInput.type === 'date') {
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.min = today;
         }
     }
 
     function init() {
         form.addEventListener('submit', handleFormSubmit);
-        setupFormValidation();
+        setupDateInput();
     }
 
     return {

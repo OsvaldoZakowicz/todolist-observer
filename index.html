@@ -40,8 +40,8 @@
                 <h2 class="subtitle">Nueva tarea:</h2>
 
                 <div class="form__input-wrapper">
-                    <label class="form__label" for="titulo">titulo</label>
-                    <input class="form__input" id="titulo" name="title" type="text" required>
+                    <label class="form__label" for="titulo">titulo*</label>
+                    <input class="form__input" id="titulo" name="title" type="text" maxlength="50" required>
                 </div>
 
                 <div class="form__input-wrapper">
@@ -51,8 +51,12 @@
 
                 <div class="form__input-wrapper">
                     <label class="form__label" for="nota">descripción</label>
-                    <textarea class="form__input form__input--textarea" name="text" id="nota" cols="30"
+                    <textarea class="form__input form__input--textarea" name="text" maxlength="150" id="nota" cols="30"
                         rows="6"></textarea>
+                </div>
+
+                <div class="form__input-wrapper">
+                    <small>requerido*</small>
                 </div>
 
                 <div class="form__buttons-container">
