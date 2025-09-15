@@ -22,6 +22,14 @@ export const CONFIG = {
     }
 };
 
+/**
+ * * crea una versión "debounceada" de una funcion que retrasa su ejecucion hasta que haya
+ * transcurrido un tiempo especifico sin ser llamada nuevamente.
+ * 
+ * @param {Function} func - La funcion a la que se aplicara el debounce
+ * @param {number} wait - Tiempo de espera en milisegundos antes de ejecutar la funcion
+ * @returns {Function} Una nueva funcion que implementa el comportamiento de debounce
+ */
 export function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -34,12 +42,37 @@ export function debounce(func, wait) {
     };
 }
 
+/**
+ * * sanitiza una cadena de texto para prevenir inyeccion de HTML malicioso
+ * convirtiendo caracteres especiales en sus equivalentes HTML seguros.
+ * 
+ * @param {string} str - cadena de texto a sanitizar
+ * @returns {string} cadena de texto sanitizada
+ * 
+ * @example
+ * // Entrada potencialmente maliciosa
+ * const userInput = '<script>alert("malicious")</script>';
+ * const safe = sanitizeHtml(userInput);
+ * // Resultado: &lt;script&gt;alert(&quot;malicious&quot;)&lt;/script&gt;
+ */
 export function sanitizeHtml(str) {
     const temp = document.createElement('div');
     temp.textContent = str;
     return temp.innerHTML;
 }
 
+/**
+ * * convierte una cadena HTML en un elemento DOM y lo retorna
+ * 
+ * @param {string} htmlString - cadena HTML a convertir
+ * @returns {Element} primer elemento hijo del HTML parseado
+ * 
+ * @example
+ * // Crear un elemento desde una cadena HTML
+ * const html = '<div class="todo-item"><p>Tarea nueva</p></div>';
+ * const element = htmlStringToDom(html);
+ * document.body.appendChild(element);
+ */
 export function htmlStringToDom(htmlString) {
     const html = document.implementation.createHTMLDocument();
     html.body.innerHTML = htmlString;

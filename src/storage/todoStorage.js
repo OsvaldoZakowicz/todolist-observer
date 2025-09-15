@@ -1,11 +1,19 @@
 // ============================================================================
-// todoStorage.js - Persistencia de datos
+// * todoStorage.js - Persistencia de datos
 // ============================================================================
 
 import { CONFIG, debounce } from '../utils/utils.js';
 
 export function TodoStorage(model) {
 
+    /**
+     * funcion debounceada que guarda el estado actual del modelo en local storage.
+     * espera 300ms después de la última llamada antes de realizar el guardado,
+     * optimizando así las operaciones de escritura frecuentes.
+     * 
+     * @type {Function}
+     * @private
+     */
     const debouncedSave = debounce(() => {
         try {
             const data = JSON.stringify(model.getTodoList());
@@ -15,10 +23,18 @@ export function TodoStorage(model) {
         }
     }, 300);
 
+    /**
+     * * llama a un guardado con un debounce
+     */
     function save() {
         debouncedSave();
     }
 
+    /**
+     * * cargar las tareas desde local storage al modelo
+     * 
+     * @returns {boolean} true si se cargaron las tareas
+     */
     function load() {
         try {
             const savedData = localStorage.getItem(CONFIG.STORAGE_KEY);
@@ -33,6 +49,9 @@ export function TodoStorage(model) {
         return false;
     }
 
+    /**
+     * * elimina todo el local storage
+     */
     function clear() {
         try {
             localStorage.removeItem(CONFIG.STORAGE_KEY);
@@ -41,8 +60,15 @@ export function TodoStorage(model) {
         }
     }
 
+    /**
+     * * inicializacion
+     */
     function init() {
+
+        // registrar como observador del modelo
         model.addObserver(save);
+
+        // carga inicial
         load();
     }
 

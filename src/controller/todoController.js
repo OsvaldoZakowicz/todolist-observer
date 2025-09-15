@@ -1,5 +1,5 @@
 // ============================================================================
-// todoController.js - Captura y validacion de datos
+// * todoController.js - Captura y validacion de datos
 // ============================================================================
 import { CONFIG } from '../utils/utils.js';
 
@@ -12,6 +12,13 @@ export function TodoController(model) {
         throw new Error(`Formulario ${CONFIG.SELECTORS.form} no encontrado`);
     }
 
+    /**
+     * * manejar el envio del formulario
+     * 
+     * 
+     * @param {Event} e 
+     * @returns 
+     */
     function handleFormSubmit(e) {
         e.preventDefault();
 
@@ -42,6 +49,10 @@ export function TodoController(model) {
         }
     }
 
+    /**
+     * * configurar el input date para establecer una fecha minima elegible
+     * la fecha minima es el dia actual. Previene un deadline en el pasado. 
+     */
     function setupDateInput() {
         const dateInput = form.querySelector('[name="deadline"]');
         if (dateInput && dateInput.type === 'date') {
@@ -50,8 +61,14 @@ export function TodoController(model) {
         }
     }
 
+    /**
+     * * inicializacion
+     */
     function init() {
+        // agregar escucha de evento submit
         form.addEventListener('submit', handleFormSubmit);
+
+        // configurar input date para deadline
         setupDateInput();
     }
 
