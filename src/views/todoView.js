@@ -1,5 +1,5 @@
 // ============================================================================
-// todoView.js - Lógica de presentación y DOM
+// * todoView.js - Lógica de presentación y DOM
 // ============================================================================
 
 import { CONFIG, sanitizeHtml, htmlStringToDom } from '../utils/utils.js';
@@ -14,7 +14,17 @@ export function TodoView(model) {
         throw new Error(`Elemento ${CONFIG.SELECTORS.notesList} no encontrado`);
     }
 
-    // template del encabezado de nota
+    /**
+     * * template del encabezado de nota
+     * 
+     * genera html del encabezado aplicando clase 'note-done' 
+     * si la tarea está completada y sanitiza el contenido
+     * 
+     * @param {string} title - titulo de la nota
+     * @param {string} deadline - fecha limite (opcional)
+     * @param {boolean} isDone - estado de completado
+     * @returns {string} html del encabezado con estilos y contenido sanitizado
+     */
     function noteHeaderTemplate(title, deadline, isDone) {
         return `<header class="note__header ${isDone ? ' note-done' : ''}">
                     <p class="note__title">${sanitizeHtml(title)}</p>
@@ -22,15 +32,30 @@ export function TodoView(model) {
                 </header>`
     }
 
-    // template del contenido principal de la nota
+    /**
+     * * template del contenido principal de la nota
+     * 
+     * genera html del cuerpo aplicando clase 'note-done' 
+     * si la tarea está completada y sanitiza el contenido
+     * 
+     * @param {string} text texto de la nota
+     * @param {boolean} isDone estado de completado
+     * @returns {string} html del cuerpo con estilos y contenido sanitizado
+     */
     function noteBodyTemplate(text, isDone) {
         return `<main class="note__body ${isDone ? ' note-done' : ''}">
                     <p class="note__text">${sanitizeHtml(text || CONFIG.TEXTS.noDescriptionText)}</p>
                 </main>`
     }
 
-    // template del footer y controles de la nota
-    // NOTA: es escencial el data-action="" y data-id="" para eventos
+    /**
+     * * template del footer y controles de la nota
+     * * NOTA: es escencial el data-action="" y data-id="" para eventos
+     * 
+     * @param {number} itemId id de la nueva nota
+     * @param {boolean} isDone estado de completado
+     * @returns {string} html del pie de nota con estilos
+     */
     function noteControlsTemplate(itemId, isDone) {
         return `<footer class="note__controls">
               <button type="button" class="btn btn--delete" data-action="delete" data-id="${itemId}">${CONFIG.BUTTONS.delete}</button>
@@ -38,13 +63,26 @@ export function TodoView(model) {
             </footer>`;
     }
 
-    // template para el estado vacio
+    /**
+     * * template para el estado vacio
+     * 
+     * cuando no hay notas que mostrar
+     * @returns {string} html con subtitulo y texto
+     */
     function emptyStateTemplate() {
         return `<p class="subtitle">${CONFIG.TEXTS.emptyStateTitle}</p>
                 <p class="text-base">${CONFIG.TEXTS.emptyStateSubtext}</p>`;
     }
 
-
+    /**
+     * 
+     * @param {Object} item - una tarea
+     * @param {string} item.title - titulo de la tarea (requerido)
+     * @param {string} [item.deadline] - fecha límite opcional
+     * @param {string} [item.text] - descripcion opcional
+     * @param {number} [item.id] - id de nota
+     * @returns {HTMLElement} elemento html de una nota completa
+     */
     function createTodoElement(item) {
         //article principal
         const article = document.createElement('article');
@@ -70,6 +108,7 @@ export function TodoView(model) {
 
     /**
      * * renderizar todas las tareas en el frontend
+     * 
      * 1. Usuario hace acción (agregar/eliminar tarea)
      * 2. Controller llama model.addTodo() o model.removeTodo()
      * 3. Model actualiza su estado interno
@@ -77,6 +116,7 @@ export function TodoView(model) {
      * 5. render() se ejecuta automáticamente
      * 6. render() reconstruye TODA la UI desde cero
      * 7. Una sola operación DOM actualiza la vista
+     * 
      */
     function render() {
 
@@ -131,6 +171,7 @@ export function TodoView(model) {
 
     /**
      * * configurar delegacion de eventos para los botones
+     * 
      * En lugar de agregar listeners a cada botón individual,
      * ponemos UN SOLO listener en el contenedor padre y
      * "delegamos" el manejo de eventos.
@@ -177,27 +218,28 @@ export function TodoView(model) {
     }
 
     /**
-     * Inicializar el componente
+     * * inicializar el componente
      */
     function init() {
         setupEventDelegation();
 
-        // Registrar como observador del modelo
+        // registrar como observador del modelo
         model.addObserver(render);
+
+        // ejecutar un primer render
         render();
 
         console.log('TodoView inicializado');
     }
 
     /**
-     * Limpiar event listeners y observers
+     * * limpiar event listeners y observers
      */
     function destroy() {
-        // Aqui podria limpiar listeners si fuera necesario
+        // aqui podria limpiar listeners si fuera necesario
         console.log('TodoView destruido');
     }
 
-    // API publica del modulo
     return {
         init,
         render,
